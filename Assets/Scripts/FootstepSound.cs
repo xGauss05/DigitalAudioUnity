@@ -10,19 +10,16 @@ public class FootstepSound : MonoBehaviour
     public AudioClip[] footstepsOnGrass;
     public AudioClip[] footstepsOnWater;
     public AudioClip[] footstepsOnWood;
-    
-    void PlayFootstepSound()
-    {
-        
-    }
 
-    private void OnCollisionEnter(Collision collision)
+    public string material;
+
+    void PlayFootstepSound()
     {
         AudioSource myAudioSource = GetComponent<AudioSource>();
         myAudioSource.volume = Random.Range(0.9f, 1.0f);
         myAudioSource.pitch = Random.Range(0.8f, 1.2f);
 
-        switch (collision.gameObject.tag)
+        switch (material)
         {
             case "Bush":
                 myAudioSource.PlayOneShot(footstepsOnBush[Random.Range(0, footstepsOnBush.Length)]);
@@ -45,5 +42,15 @@ public class FootstepSound : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        material = collision.gameObject.tag;
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        Debug.Log("Collision with" + other.gameObject.tag);
+        material = other.gameObject.tag;
     }
 }
