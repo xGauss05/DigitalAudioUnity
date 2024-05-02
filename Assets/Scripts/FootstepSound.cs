@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class FootstepSound : MonoBehaviour
 {
-    public AudioClip[] footstepsOnGrass;
-    public AudioClip[] footstepsOnWood;
     public AudioClip[] footstepsOnBush;
-
+    public AudioClip[] footstepsOnRock;
+    public AudioClip[] footstepsOnGravel;
+    public AudioClip[] footstepsOnGrass;
+    public AudioClip[] footstepsOnWater;
+    public AudioClip[] footstepsOnWood;
+    
     void PlayFootstepSound()
     {
         
@@ -21,17 +24,24 @@ public class FootstepSound : MonoBehaviour
 
         switch (collision.gameObject.tag)
         {
-            case "Grass":
-                myAudioSource.PlayOneShot(footstepsOnGrass[Random.Range(0, footstepsOnGrass.Length)]);
-                break;
-
-            case "Wood":
-                myAudioSource.PlayOneShot(footstepsOnWood[Random.Range(0, footstepsOnWood.Length)]);
-                break;
             case "Bush":
                 myAudioSource.PlayOneShot(footstepsOnBush[Random.Range(0, footstepsOnBush.Length)]);
                 break;
-
+            case "Rock":
+                myAudioSource.PlayOneShot(footstepsOnRock[Random.Range(0, footstepsOnRock.Length)]);
+                break;
+            case "Gravel":
+                myAudioSource.PlayOneShot(footstepsOnGravel[Random.Range(0, footstepsOnGravel.Length)]);
+                break;
+            case "Grass":
+                myAudioSource.PlayOneShot(footstepsOnGrass[Random.Range(0, footstepsOnGrass.Length)]);
+                break;
+            case "Water":
+                myAudioSource.PlayOneShot(footstepsOnWater[Random.Range(0, footstepsOnWater.Length)]);
+                break;
+            case "Wood":
+                myAudioSource.PlayOneShot(footstepsOnWood[Random.Range(0, footstepsOnWood.Length)]);
+                break;
             default:
                 break;
         }
