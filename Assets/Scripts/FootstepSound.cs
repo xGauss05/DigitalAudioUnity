@@ -46,11 +46,70 @@ public class FootstepSound : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        material = collision.gameObject.tag;
+        switch (collision.gameObject.tag)
+        {
+            case "Rock":
+                material = collision.gameObject.tag;
+                
+                break;
+            case "Gravel":
+                material = collision.gameObject.tag;
+                
+                break;
+            case "Grass":
+                material = collision.gameObject.tag;
+                
+                break;
+            case "Wood":
+                material = collision.gameObject.tag;
+                
+                break;
+            default:
+                break;
+        }
     }
+
     private void OnTriggerStay(Collider other)
     {
         Debug.Log("Collision with" + other.gameObject.tag);
-        material = other.gameObject.tag;
+        switch (other.gameObject.tag)
+        {
+            case "Grass":
+                material = other.gameObject.tag;
+
+                break;
+            case "Bush":
+                material = other.gameObject.tag;
+
+                break;
+            case "Water":
+                material = other.gameObject.tag;
+
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Collision with" + other.gameObject.tag);
+        switch (other.gameObject.tag)
+        {
+            case "Grass":
+                material = other.gameObject.tag;
+
+                break;
+            case "Bush":
+                material = other.gameObject.tag;
+
+                break;
+            case "Water":
+                material = other.gameObject.tag;
+
+                break;
+            default:
+                break;
+        }
     }
 }
