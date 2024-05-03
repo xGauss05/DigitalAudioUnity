@@ -6,8 +6,8 @@ using UnityEngine.Audio;
 public class BGMChange : MonoBehaviour
 {
     public AudioMixerSnapshot baseSnapshot;
-    public AudioMixerSnapshot calmSnapshot;
-    public AudioMixerSnapshot combatSnapshot;
+    public AudioMixerSnapshot nearSnapshot;
+    public AudioMixerSnapshot indoorSnapshot;
 
     public float slowTransitionTime = 2.0f;
     public float fastTransitionTime = 0.5f;
@@ -16,12 +16,12 @@ public class BGMChange : MonoBehaviour
     {
         switch (other.gameObject.tag)
         {
-            case "Tension":
-                calmSnapshot.TransitionTo(slowTransitionTime);
+            case "Near":
+                nearSnapshot.TransitionTo(slowTransitionTime);
                 break;
 
             case "Indoor":
-                combatSnapshot.TransitionTo(fastTransitionTime);
+                indoorSnapshot.TransitionTo(fastTransitionTime);
                 break;
 
             default:
@@ -33,12 +33,12 @@ public class BGMChange : MonoBehaviour
     {
         switch (other.gameObject.tag)
         {
-            case "Tension":
+            case "Near":
                 baseSnapshot.TransitionTo(slowTransitionTime);
                 break;
 
             case "Indoor":
-                calmSnapshot.TransitionTo(slowTransitionTime);
+                nearSnapshot.TransitionTo(slowTransitionTime);
                 break;
 
             default:
