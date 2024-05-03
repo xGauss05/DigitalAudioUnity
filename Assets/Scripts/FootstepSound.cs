@@ -86,6 +86,10 @@ public class FootstepSound : MonoBehaviour
                 material = other.gameObject.tag;
 
                 break;
+            case "Wood":
+                material = other.gameObject.tag;
+
+                break;
             default:
                 break;
         }
@@ -105,6 +109,10 @@ public class FootstepSound : MonoBehaviour
 
                 break;
             case "Water":
+                material = other.gameObject.tag;
+
+                break;
+            case "Wood":
                 material = other.gameObject.tag;
 
                 break;
